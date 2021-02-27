@@ -1,0 +1,33 @@
+{
+  "name": "jonmeyersio",
+  "private": true,
+  "version": "1.0.0",
+  "description": "",
+  "main": "package.json",
+  "author": "Jon Meyers <jonathon.d.meyers@gmail.com>",
+  "license": "UNLICENSED",
+  "scripts": {
+    "start": "sanity start",
+    "build": "sanity build",
+    "deploy": "sanity graphql deploy --playground",
+    "deploy:disable-playground": "sanity graphql deploy --no-playground"
+  },
+  "keywords": [
+    "sanity"
+  ],
+  "dependencies": {
+    "@sanity/base": "^2.3.0",
+    "@sanity/components": "^2.2.6",
+    "@sanity/core": "^2.2.6",
+    "@sanity/default-layout": "^2.3.0",
+    "@sanity/default-login": "^2.2.6",
+    "@sanity/desk-tool": "^2.3.0",
+    "@sanity/vision": "^2.2.6",
+    "prop-types": "^15.7",
+    "react": "^17.0",
+    "react-dom": "^17.0",
+    "sanity-plugin-asset-source-unsplash": "^0.1.3",
+    "sanity-plugin-autocomplete-tags": "^1.0.1"
+  },
+  "devDependencies": {}
+}
