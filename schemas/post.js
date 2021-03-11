@@ -39,6 +39,11 @@ export default {
       type: "number",
     },
     {
+      name: "seoDescription",
+      title: "SEO Description",
+      type: "text",
+    },
+    {
       name: "body",
       title: "Body",
       type: "blockContent",

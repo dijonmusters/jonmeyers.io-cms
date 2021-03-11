@@ -20,7 +20,7 @@ export default {
     {
       name: "seoDescription",
       title: "SEO description",
-      type: "string",
+      type: "text",
     },
     {
       name: "mainImage",
