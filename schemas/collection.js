@@ -18,8 +18,8 @@ export default {
       },
     },
     {
-      name: "seoDescription",
-      title: "SEO description",
+      name: "description",
+      title: "Description",
       type: "text",
     },
     {
