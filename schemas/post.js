@@ -20,7 +20,7 @@ export default {
       title: "Slug",
       type: "slug",
       options: {
-        slugify: (str) => str.replace(" ", "-").toLowerCase(),
+        slugify: (str) => str.replaceAll(" ", "-").toLowerCase(),
         source: async (doc) => {
           if (!doc.collection) {
             return doc.title;
