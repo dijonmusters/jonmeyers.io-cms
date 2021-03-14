@@ -6,16 +6,14 @@ export default {
   type: "document",
   fields: [
     {
+      name: "isPublished",
+      title: "Published",
+      type: "boolean",
+    },
+    {
       name: "title",
       title: "Title",
       type: "string",
-    },
-    {
-      name: "collection",
-      title: "Collection",
-      type: "reference",
-      to: [{ type: "collection" }],
-      weak: false,
     },
     {
       name: "slug",
@@ -32,6 +30,13 @@ export default {
           return `${collection.slug.current}/${doc.title}`;
         },
       },
+    },
+    {
+      name: "collection",
+      title: "Collection",
+      type: "reference",
+      to: [{ type: "collection" }],
+      weak: false,
     },
     {
       name: "numInCollection",

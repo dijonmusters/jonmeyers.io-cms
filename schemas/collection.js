@@ -4,6 +4,11 @@ export default {
   type: "document",
   fields: [
     {
+      name: "isPublished",
+      title: "Published",
+      type: "boolean",
+    },
+    {
       name: "title",
       title: "Title",
       type: "string",
@@ -23,35 +28,23 @@ export default {
       type: "text",
     },
     {
-      name: "mainImage",
-      title: "Main image",
-      type: "image",
-      options: {
-        hotspot: true,
-      },
-    },
-    {
       name: "tags",
       title: "Tags",
       type: "tags",
     },
     {
-      name: "isPublished",
-      title: "Published",
-      type: "boolean",
-    },
-    {
-      name: "posts",
-      title: "Posts",
-      type: "array",
-      of: [{ type: "reference", to: [{ type: "post" }] }],
+      name: "image",
+      title: "Header image",
+      type: "image",
+      options: {
+        hotspot: true,
+      },
     },
   ],
 
   preview: {
     select: {
       title: "title",
-      media: "mainImage",
     },
     prepare(selection) {
       return selection;
