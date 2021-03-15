@@ -27,7 +27,16 @@ export default {
       title: "Slug",
       type: "slug",
       options: {
-        slugify: (str) => str.replaceAll(" ", "-").toLowerCase(),
+        slugify: (str) => {
+          return str
+            .toString()
+            .toLowerCase()
+            .replace(/\s+/g, "-") // Replace spaces with -
+            .replace(/[^\w\-\/]+/g, "") // Remove all non-word chars
+            .replace(/\-\-+/g, "-") // Replace multiple - with single -
+            .replace(/^-+/, "") // Trim - from start of text
+            .replace(/-+$/, "");
+        },
         source: async (doc) => {
           if (!doc.collection) {
             return doc.title;
