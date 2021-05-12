@@ -1,4 +1,5 @@
 import client from "part:@sanity/base/client";
+import course from "./course";
 
 export default {
   name: "lesson",
@@ -39,9 +40,9 @@ export default {
       weak: false,
     },
     {
-      name: "numInCourse",
+      name: "positionInCourse",
       description: "Optional",
-      title: "Number of Video in Course",
+      title: "Position in Course",
       type: "number",
     },
     {
@@ -50,14 +51,20 @@ export default {
       type: "text",
     },
     {
-      name: "body",
-      title: "Body",
-      type: "blockContent",
+      name: "videoUrl",
+      title: "Video URL",
+      type: "string",
+    },
+    {
+      name: "nextBestActionTitle",
+      title: "Next best action",
+      description: "Defaults to next lesson in course",
+      type: "text",
     },
     {
       name: "nextBestActionUrl",
-      title: "URL for next best action",
-      description: "Defaults to next article in series",
+      title: "Next best action URL",
+      description: "Defaults to next lesson in course",
       type: "string",
     },
   ],
@@ -65,9 +72,20 @@ export default {
   preview: {
     select: {
       title: "title",
+      course: "course.title",
+      positionInCourse: "positionInCourse",
     },
     prepare(selection) {
-      return selection;
+      const { title, course, positionInCourse } = selection;
+
+      if (!course) {
+        return { title };
+      }
+
+      return {
+        title: `${positionInCourse}. ${title}`,
+        subtitle: course,
+      };
     },
   },
 };

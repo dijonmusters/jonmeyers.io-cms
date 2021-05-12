@@ -39,8 +39,8 @@ export default {
       weak: false,
     },
     {
-      name: "numInCollection",
-      title: "Number of Post in Collection",
+      name: "positionInSeries",
+      title: "Position in Series",
       description: "Optional",
       type: "number",
     },
@@ -55,6 +55,12 @@ export default {
       type: "blockContent",
     },
     {
+      name: "nextBestActionTitle",
+      title: "Next best action",
+      description: "Defaults to next article in series",
+      type: "text",
+    },
+    {
       name: "nextBestActionUrl",
       title: "URL for next best action",
       description: "Defaults to next article in series",
@@ -65,9 +71,20 @@ export default {
   preview: {
     select: {
       title: "title",
+      series: "series.title",
+      positionInSeries: "positionInSeries",
     },
     prepare(selection) {
-      return selection;
+      const { title, series, positionInSeries } = selection;
+
+      if (!series) {
+        return { title };
+      }
+
+      return {
+        title: `${positionInSeries}. ${title}`,
+        subtitle: series,
+      };
     },
   },
 };
